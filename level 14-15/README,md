@@ -1,0 +1,23 @@
+Level 14 → 15
+The password for the next level can be retrieved by submitting the password of the current level to port 30000 on localhost.
+On this level, we can get the current password level from /etc/bandit_pass. Every password on that directory can be accessed only with the current SSH login. So, don’t think it is a shortcut to get all the password. Then, we can use nc command to submit the password to localhost.
+You can read helpful materials below:
+Linux nc command
+
+bandit14@bandit:~$ cd /etc/bandit_pass/
+bandit14@bandit:/etc/bandit_pass$ ls
+bandit0   bandit13  bandit18  bandit22  bandit27  bandit31  bandit6
+bandit1   bandit14  bandit19  bandit23  bandit28  bandit32  bandit7
+bandit10  bandit15  bandit2   bandit24  bandit29  bandit33  bandit8
+bandit11  bandit16  bandit20  bandit25  bandit3   bandit4   bandit9
+bandit12  bandit17  bandit21  bandit26  bandit30  bandit5
+bandit14@bandit:/etc/bandit_pass$ cat bandit1
+cat: bandit1: Permission denied
+bandit14@bandit:/etc/bandit_pass$ cat bandit14
+4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+bandit14@bandit:/etc/bandit_pass$ echo 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e | nc localhost 30000
+Correct!
+BfMYroe26WYalil77FoDi9qh59eK5xNr
+Command explanation:
+echo → Used to display a line of text.
+nc → Is a simple unix utility which reads and writes data across network connections, using TCP or UDP protocol.
