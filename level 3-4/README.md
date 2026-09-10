@@ -4,38 +4,38 @@
 
 First, connect to Level 3 using SSH.
 
-```bash
+`bash
 ssh bandit3@bandit.labs.overthewire.org -p 2220
-```
+`
 
 The password is the one obtained from Level 2.
 
 After logging in, list the files in the current directory.
 
-```bash
+`bash
 ls
-```
+`
 
 There is a directory named `inhere`.
 
 Move into the directory.
 
-```bash
+`bash
 cd inhere
-```
+`
 
 List all files, including hidden files.
 
-```bash
+`bash
 ls -la
-```
+`
 
 A hidden file named `.hidden` is present.
 
 Display its contents.
 
-```bash
+`bash
 cat .hidden
-```
+`
 
 The output is the password for Level 4.
